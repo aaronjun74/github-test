@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>태양계 여행 | Solar System</title>
+  <meta name="description" content="태양계 여덟 행성을 한눈에 소개하는 페이지">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <header class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Solar System</p>
+      <h1>태양계 여행</h1>
+      <p class="lead">태양을 도는 여덟 개의 행성을 만나 보세요.<br>행성을 누르면 자세한 정보가 나옵니다.</p>
+      <a href="#planets" class="btn">행성 보러 가기</a>
+    </div>
+
+    <div class="orbit-system" aria-hidden="true">
+      <div class="sun"></div>
+      <!-- 궤도는 script.js가 그립니다 -->
+    </div>
+  </header>
+
+  <main id="planets">
+    <h2>여덟 개의 행성</h2>
+
+    <nav class="filters" aria-label="행성 종류 필터">
+      <button class="filter active" data-type="all">전체</button>
+      <button class="filter" data-type="rocky">암석 행성</button>
+      <button class="filter" data-type="gas">가스 행성</button>
+      <button class="filter" data-type="ice">얼음 행성</button>
+    </nav>
+
+    <section class="grid" id="grid"></section>
+
+    <section class="compare">
+      <h2>크기 비교</h2>
+      <p class="hint">지름 비율 그대로 그렸습니다. 목성은 지구보다 약 11배 큽니다.</p>
+      <div class="compare-row" id="compare"></div>
+    </section>
+  </main>
+
+  <!-- 상세 정보 창 -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="m-name">
+      <button class="close" id="close" aria-label="닫기">&times;</button>
+      <div class="modal-planet" id="m-planet"></div>
+      <div class="modal-body">
+        <p class="m-en" id="m-en"></p>
+        <h3 id="m-name"></h3>
+        <p id="m-desc"></p>
+        <dl class="facts" id="m-facts"></dl>
+        <p class="fun" id="m-fun"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>수치는 NASA 행성 자료 기준 근삿값입니다. 위성 수는 새로 발견되면 바뀔 수 있습니다.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
